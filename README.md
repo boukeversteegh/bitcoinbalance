@@ -1,0 +1,4 @@
+quickvoter
+==========
+
+Simple voting system

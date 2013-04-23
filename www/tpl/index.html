@@ -1,0 +1,33 @@
+<html>
+<head>
+	{{>head}}
+	<script>
+		$(function(){
+			$('#addresses').bind('keyup change keydown',function() {
+				var match = $(this).val().match(/\n/g);
+				if( match ) {
+					var rows = match.length + 1;
+				} else {
+					var rows = 1;
+				}
+				$(this).attr('rows', rows);
+			});
+			$('#addresses').trigger('change');
+		});
+	</script>
+</head>
+<body>
+	<h1>Bitcoin Balance Checker</h1>
+	{{#error}}
+		<div class="message Exception">{{.}}</div>
+	{{/error}}
+	<form method="post" action="/balance" id="form" onsubmit="var url='/balance/' + $('#addresses').val().trim().replace(/[^0-9a-zA-Z]+/g, '+'); window.location.href=url; $('#submit').attr('disabled',true); return false">
+		<div>
+			<label for="addresses">Address(es)</label>
+			<textarea type="text" id="addresses" autofocus="true" rows="1" cols="37">{{#addresses}}{{.}}&#13;{{/addresses}}</textarea>
+		</div>
+		<div><label>&nbsp;</label><input type="submit" value="Check balance" id="submit"/></div>
+	</form>
+
+</body>
+</html>

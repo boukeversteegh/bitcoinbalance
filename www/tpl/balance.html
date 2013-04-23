@@ -1,0 +1,48 @@
+<html>
+<head>
+	<title>Bitcoin Balance</title>
+	{{>head}}
+</head>
+<body>
+
+<h1><a title="back" href="/{{#addresses}}{{.}}+{{/addresses}}">&#x2190</a>Bitcoin Balance</h1>
+
+<table id="information">
+<tr><th>Address(es)</th><td id="addresses">{{#addresses}}<div>{{.}}</div>{{/addresses}}</td></tr>
+<tr><th>Last Update</th><td>{{btc_age}} ago</td></tr>
+</table>
+
+<table id="balance">
+	<tr>
+		<td></td>
+		<th colspan="1">Balance</th>
+		<th class="col-rates">Current Rates</th>
+	</tr>
+	<tr>
+		<th>&#x0E3F; Bitcoin</td>
+				<td>{{balance.BTC}}</td>
+		<td class="col-rates">1</td>
+	</tr>
+	<tr>
+		<th>$ US Dollar</td>
+		<td>{{balance.mtgox-USD}}</td>
+		<td class="col-rates" id="rate-usd">{{rates.mtgox-USD}}</td>
+		<td>
+			<a href="http://bitcoincharts.com/charts/mtgoxUSD#rg30ztgTzm1g10zm2g25zv" target="_blank">
+				<img src="/img/icon-chart-20.png"/>
+			</a>
+		</td>
+	</tr>
+	<tr>
+		<th>&euro; Euro</td>
+		<td>{{balance.mtgox-EUR}}</td>
+		<td class="col-rates">{{rates.mtgox-EUR}}</td>
+		<td>
+			<a href="http://bitcoincharts.com/charts/mtgoxEUR#rg30ztgTzm1g10zm2g25zv" target="_blank">
+				<img src="/img/icon-chart-20.png"/>
+			</a>
+		</td>
+	</tr>
+</table>
+</body>
+</html>
