@@ -6,7 +6,7 @@ class ApiException(Exception): pass
 
 class Api:
 	host = 'http://mtgox.com'
-	useragent = 'BTC/IO'
+	useragent = 'BitcoinBalance'
 
 	def _build_query(self, request={}):
 		headers = {
@@ -69,6 +69,3 @@ if __name__ == "__main__":
 
 	while True:
 		print timecache.getWait(mtgox.query, '/api/1/BTCUSD/ticker')
-	#with open(sys.argv[1]) as fh:
-	#	api = json.load(fh)
-	#privateapi = MtGoxPrivateApi(key=api['key'], secret=api['secret'])
