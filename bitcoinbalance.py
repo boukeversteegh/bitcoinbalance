@@ -61,8 +61,8 @@ class BitcoinBalance:
 			mtgoxeur = self.mtgoxticker.getRate('EUR')
 
 			rates = {
-				"mtgox-USD": mtgoxusd,
-				"mtgox-EUR": mtgoxeur
+				"mtgox-USD": '%.2f' % mtgoxusd,
+				"mtgox-EUR": '%.2f' % mtgoxeur
 			}
 			tdata['rates'] = rates
 
@@ -92,9 +92,9 @@ class BitcoinBalance:
 			tdata['addresses'] = addresses
 			
 			balance = {
-				"BTC": btc,
-				"mtgox-USD": btc * mtgoxusd,
-				"mtgox-EUR": btc * mtgoxeur
+				"BTC": '%.8f' % btc,
+				"mtgox-USD": '%f' % (btc * mtgoxusd),
+				"mtgox-EUR": '%f' % (btc * mtgoxeur)
 			}
 			tdata['balance'] = balance
 			tdata['btc_timestamp'] = formatTimeStamp(min_btc_timestamp)
